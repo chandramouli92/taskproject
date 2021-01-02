@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<>, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'cdnlines.html' %}
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+<form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type='submit' value="send" class="btn btn-success">
+                    <input type="reset" value="clear" class="btn btn-danger">
+                </form>
+            
+            </div>
+            <div class="col-md-4">
+                
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th>Course Name</th>
+                            <th>Course provider name</th>
+                            <th>Image representing Course</th>
+                            <th>Icon Image</th>
+                            <th>Category</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in empdata1 %}
+                            <tr>
+                                <td>{{i.course_name}}</td>
+                                <td>{{i.course_provider_name}}</td> <br>
+                                <td>{{i.image_representing_course}}</td> <br>
+                                <td>{{i.iconimage_course_provider}}</td> <br>
+                                <td>{{i.category}}</td> <br>
+                                <td>{{i.start_date}}</td> <br>
+                                <td>{{i.end_date}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    
+                    </table>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>
